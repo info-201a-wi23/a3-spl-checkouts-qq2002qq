@@ -3,84 +3,80 @@ title: "A3: SPL Library Checkouts"
 output: html_document
 ---
 
+```{r, include=FALSE, echo=FALSE}
+source("summary.R")
+```
+
+
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+The data set *Checkouts-SPL-Data* from 2017 to 2023 with at least 10 times checkouts is from the Seattle Public Library. I choose this data set because I want to explore people reading preference, such as what books are selected most or published in which year, among popular books that are filtered by the at least of 10 times of checkouts. And then, I want to manipulate the data to analyze their habits of reading, such as how long spent on one book, what do they use to read. Since reading is good habit to have in life, if more people can enjoy reading, it will be a good way to spread different culture, ideas, and knowledge through books. In order to make the communication of words more effective, understanding people's preferences and habits of reading provides a foundation for technological company and publishing house to better target consumers.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+There are six question I want to explore in this project.
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
+**What is the name of the book that was read the most times in a month?**
 
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
+The most popular book in a month is named `r df.list$max.checkouts.name`.
 
-Feel free to calculate and report values that you find relevant.
+**Which book was read the most times in a month?**
+
+It has been checked out by `r df.list$max.checkouts` times within that month.
+
+**In what year do people most like to read books published?**
+
+People like to read books that were published in `r df.list$popular.year`.
+
+**How long is the average borrowing/reading period for people?**
+
+This question cannot be answer by given data set since we do not have data recording how long did each book being hold and how fast did it change hand.
+
+**What is the difference between the number of people who like to read paper books and e-books?**
+
+From 2017 to 2023, `r df.list$dif.ebook.book` more people prefer reading paper book than ebook.
+
+**Which checkout type is the most popular among these years?**
+
+The most popular check out type is `r df.list$type`.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+The data is collected by Seattle Public Library. It includes a monthly count of checkouts by title for physical and electronic items. The dataset starting info is from in April 2005, but we use part of the data set which includes the data from 2017 to 2023. Within the data set, we have variables of "UsageClass", denoting if item is physical or digital; "CheckoutType", indicating the vendor tool; "CheckoutYear", year that books were checked out; "Title", the full name of the book, etc.
 
+Checkout data is from different current and historical sources. For example, digital items, the media vendors: Overdrive, hoopla, Freegal, and RBDigital provide usage data. The data was collected for the purpose of increasing the quality of life for our residents by providing more transparency, accountability and comparability information, which will also give foundation for economic development,research utilization, and internal management.
+
+We should consider whether the data include personal information that entails privacy. For example, Readers' real borrowing names and preferences should not be disclosed to the public. That's exactly what the SPL is doing, hiding the names of its readers to protect private privacy at the same time provide data to the public.
+
+However, this data set does not include the data about how long did people holding the book. It is hard to understand the time interval that the same book change hand.
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart1.R")}
 ```
+
+The first plot is a stacked bar chart, the taller a bar is, the larger the volume of those numeric values. The bars are stacked showing how each material type comparing to others over time. 
+
+With the development of technology, people today embrace many different kinds of types to read books. Some prefer paper book, while others prefer e-book, and there are also some people like audio book as well as video book. Realizing today's people reading preference helps to use different reading tools more effectively and to deliver different information to different groups.
+
+The stacked bar chart shows that audio book is the least popular tool for reading because given any year, it takes the smallest part of a bar. And we can also see that the popularity of video book is decreasing over time. That might indicating that in the future, video book will be abandoned. Besides, book and ebook take the most part of a bar even though in 2020 the amount of people choosing book fluctuated to lower level. We can see that after 2020, preference of book increases, and since 2017, preference of ebook has increased. We may expect that in the future, these two types of material will be the most popular two.
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart2.R")}
 ```
 
-### Your Choice
+I choose to plot time series data to visualize the trends of total checkouts per year and total checkouts of the year that is the same as the publishing year. Time series are very good at seeing the fluctuation and the overtime trend. 
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+We want to see how many checkouts per year and how does the amount of checkouts change over time because they will give us a rough picture about residents' reading frequency. And we also want to see whether a newly published book can be quickly accepted and widely read.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
+There are two time series within the plot, the blue one is the total checkouts over time, and the red one is the total checks of the year that is the same as the publishing year. We can see that people read books that most are not published in the same year because the blue line given any year is too much higher than the red line. New books may take times to be well-known. However, it is very interesting that the read line is like sawtooth. At the start of each year, a few people read the new book, but at the end of each year, the new book's reading volumn increases. In addition to the pattern of the red line, we notice a significant drop in the blue line between 2020 and 2021, but the amount of checkouts gradually recover since then. That may due to the pandemic, people's life was interrupted and less time was given to reading but combating with Covid-19.
 
-Here's an example of how to run an R script inside an RMarkdown file:
+### Pie Chart
 
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart3.R")}
 ```
 
+Pie chart is very good at displaying relative proportions of multiple classes of data. Since people have different preference towards the media that supports reading, it is very important to see which vendor is the most popular. The reading volume of the book can be increased by placing it in the places where users use it most.
 
+The chart clearly shows that among the five vendors, "Horizon" is the most popular, and "OverDrive" is the second. Although there are people using the other three vendors, they just take a very small proportion. Searching from the internet, I find that most of the users of Horizon and Overdrive gave positive feedback and use them for a long time. Thus, these two may be good platforms for writers to share their books and increase reading volumn.
