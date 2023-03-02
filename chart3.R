@@ -15,4 +15,11 @@ ggplot(df.3, aes(x = "", y = prop, fill = CheckoutType)) +
   geom_text(aes(label = ""), color = "white")+
   theme_void() +
   labs(title = "Popular Checkout Type Proportion",
-       fill = "Vendors")
+       fill = "Vendors",
+       subtitle = "Horizon takes 56.6%,
+OverDrive takes 42.71%,
+Zinio takes 0.32%,
+Hoopla takes 0.26%,
+Freegal take 0.1%")
+
+knitr::kable(df.3)

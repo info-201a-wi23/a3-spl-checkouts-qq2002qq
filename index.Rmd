@@ -40,6 +40,8 @@ From 2017 to 2023, `r df.list$dif.ebook.book` more people prefer reading paper b
 
 The most popular check out type is `r df.list$type`.
 
+By exploring the questions above, we can have a basic understanding about people's reading preference and thus save time once using the data set. Since we know there is no information about how long does one holding the book, we wouldn't plot the data for this question. Besides, We realize that the most popular vendor is Horizon, we may expect using a pie chart to visulaize the proportion of each vendor, and checking whether Horizon takes the largest part. People also like the book published in 2017, we can do some reseach and see why does the books published in the year is very popular, and gain more insight about that. And also, other values explored above can be use to better utilize the data and create better visulizations.
+
 ### The Dataset
 
 The data is collected by Seattle Public Library. It includes a monthly count of checkouts by title for physical and electronic items. The dataset starting info is from in April 2005, but we use part of the data set which includes the data from 2017 to 2023. Within the data set, we have variables of "UsageClass", denoting if item is physical or digital; "CheckoutType", indicating the vendor tool; "CheckoutYear", year that books were checked out; "Title", the full name of the book, etc.
@@ -79,4 +81,4 @@ There are two time series within the plot, the blue one is the total checkouts o
 
 Pie chart is very good at displaying relative proportions of multiple classes of data. Since people have different preference towards the media that supports reading, it is very important to see which vendor is the most popular. The reading volume of the book can be increased by placing it in the places where users use it most.
 
-The chart clearly shows that among the five vendors, "Horizon" is the most popular, and "OverDrive" is the second. Although there are people using the other three vendors, they just take a very small proportion. Searching from the internet, I find that most of the users of Horizon and Overdrive gave positive feedback and use them for a long time. Thus, these two may be good platforms for writers to share their books and increase reading volumn.
+The chart clearly shows that among the five vendors, "Horizon" is the most popular, and "OverDrive" is the second (If we calculate the total number of vendors useage during this 10 years, we will find 56.6% of them using Horizon, 42.7% using OverDrive, 0.32% using Zinio, 0.26% using Hoopla, and only 0.1% using Freegal). The proportion varies too much. Although there are people using the other three vendors, they just take a very small proportion. Searching from the internet, I find that most of the users of Horizon and Overdrive gave positive feedback and use them for a long time. Thus, these two may be good platforms for writers to share their books and increase reading volumn.

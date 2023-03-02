@@ -1,5 +1,6 @@
 library(ggplot2)
 library(dplyr)
+library(plotly)
 
 # load the csv file
 df <- read.csv("2017-2023-10-Checkouts-SPL-Data.csv", stringsAsFactors = FALSE)
@@ -12,10 +13,15 @@ df.1$count <- 1
 
 
 
-ggplot(df.1, aes(x = CheckoutYear, y = count, fill = MaterialType)) +
-  geom_col(position = position_stack()) +
+a <- ggplot(df.1) +
+  geom_col(aes(x = CheckoutYear, 
+               y = count, 
+               fill = MaterialType),
+           position = position_stack()) +
   labs(x = "Year",
        y = "Amount of Material Types",
        title = "The changes of usage of different reading materials",
        fill = "Material Types")
+
+ggplotly(a, tooltip = c("MaterialType", "CheckoutYear"))
 

@@ -33,3 +33,4 @@ ggplot(df.5) +
 Red line: traces total checkouts that have the same year as publish") +
   scale_y_continuous(labels = label_number(suffix = " K", scale = 1e-3)) +
   theme_classic()
+
