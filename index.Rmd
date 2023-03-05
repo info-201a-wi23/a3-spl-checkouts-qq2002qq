@@ -7,7 +7,6 @@ output: html_document
 source("summary.R")
 ```
 
-
 ### Introduction
 
 The data set *Checkouts-SPL-Data* from 2017 to 2023 with at least 10 times checkouts is from the Seattle Public Library. I choose this data set because I want to explore people reading preference, such as what books are selected most or published in which year, among popular books that are filtered by the at least of 10 times of checkouts. And then, I want to manipulate the data to analyze their habits of reading, such as how long spent on one book, what do they use to read. Since reading is good habit to have in life, if more people can enjoy reading, it will be a good way to spread different culture, ideas, and knowledge through books. In order to make the communication of words more effective, understanding people's preferences and habits of reading provides a foundation for technological company and publishing house to better target consumers.
@@ -68,17 +67,17 @@ The stacked bar chart shows that audio book is the least popular tool for readin
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart2.R")}
 ```
 
-I choose to plot time series data to visualize the trends of total checkouts per year and total checkouts of the year that is the same as the publishing year. Time series are very good at seeing the fluctuation and the overtime trend. 
+I choose to plot time series data to visualize the trend of the amount of checkouts over time with respect to the usage class, digital or physical. By ploting a time series data, we can easily see how does people preference towards the medium for reading change. It is very important to know whether digital books are preferred than physical books, and library can utilize that information to change the book storage and appropriatly modify paper and electronic books proportion.
 
-We want to see how many checkouts per year and how does the amount of checkouts change over time because they will give us a rough picture about residents' reading frequency. And we also want to see whether a newly published book can be quickly accepted and widely read.
+The graph shows that there is huge down in physical book around 2020. This significant drop of reading physical books may be contributed to the outbreak of pandemic; people did not often go out to the libraries and buying or reading physical books there but instead shopping online and read online books. Besides, we may expect that a huge drop in the choice of physical books would lead to a huge increase in digital books around 2020, though we see digital books increases at that time but it does not icreases that huge amount. There must be some reasons account for the lost difference between the two classes. However, from a macro-scale, seeing the upper and upper red line, we realize that more and more people choose digital books. Before 2020, physical books shows a decreasing trend, which is aggravated by the huge downturn in 2020. It gradually recovers at the end of 2020 but the total amount is still lower than the digital.
 
-There are two time series within the plot, the blue one is the total checkouts over time, and the red one is the total checks of the year that is the same as the publishing year. We can see that people read books that most are not published in the same year because the blue line given any year is too much higher than the red line. New books may take times to be well-known. However, it is very interesting that the read line is like sawtooth. At the start of each year, a few people read the new book, but at the end of each year, the new book's reading volumn increases. In addition to the pattern of the red line, we notice a significant drop in the blue line between 2020 and 2021, but the amount of checkouts gradually recover since then. That may due to the pandemic, people's life was interrupted and less time was given to reading but combating with Covid-19.
-
-### Pie Chart
+### Box Plot
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart3.R")}
 ```
 
-Pie chart is very good at displaying relative proportions of multiple classes of data. Since people have different preference towards the media that supports reading, it is very important to see which vendor is the most popular. The reading volume of the book can be increased by placing it in the places where users use it most.
+The third plot I choose to use box plots. Box plot is good at telling the mean, max, min of the data, and so we can get better understanding about the distribution of the amount of choosing each vendors throughout these years. 
 
-The chart clearly shows that among the five vendors, "Horizon" is the most popular, and "OverDrive" is the second (If we calculate the total number of vendors useage during this 10 years, we will find 56.6% of them using Horizon, 42.7% using OverDrive, 0.32% using Zinio, 0.26% using Hoopla, and only 0.1% using Freegal). The proportion varies too much. Although there are people using the other three vendors, they just take a very small proportion. Searching from the internet, I find that most of the users of Horizon and Overdrive gave positive feedback and use them for a long time. Thus, these two may be good platforms for writers to share their books and increase reading volumn.
+By looking at the plot, we can see the mean of Horizon is 7769 meaning that throughout the 10 years, about average 7769 times people choosing to use Horizon per month. We can see the mean of Horizon is higher than all other vendors', the first quantile and third quantile are also higher than these of others, meaning that Horizon is the most popular vendor among the five. And the second popular vendor is OverDrive. Besides, we can barely see the distribution of the other three vendors. That might tells us only few people choose them. 
+
+We should be careful when consider the use of Horizon or OverDrive because though the mean of Horizon is higher, its variance and range are also higher. We can also see that the minimum of Horizon is zero, meaning that there are months when people did not choose to use Horizon. And the data of OverDrive is more concentrated, indicating stable distribution. 
